@@ -10,7 +10,8 @@ router.get('/candidates', (req, res) => {
                   AS party_name 
                   FROM candidates 
                   LEFT JOIN parties 
-                  ON candidates.party_id = parties.id`;
+                  ON candidates.party_id = parties.id`
+                  `SELECT * FROM voters ORDER BY last_name`;
                   
     db.query(sql, (err, rows) => {
       if (err) {
